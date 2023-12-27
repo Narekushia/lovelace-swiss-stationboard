@@ -5,6 +5,9 @@ var html = LitElement.prototype.html;
 const css = LitElement.prototype.css;
 
 class SwissPublicTransportCard extends LitElement {
+
+  _line_style = [];
+
   static get is() {
     return "swiss-stationboard";
   }
@@ -188,6 +191,7 @@ class SwissPublicTransportCard extends LitElement {
     }
     this._config = config;
     this.departures = [];
+    this._update_color_line_name();
   }
 
   getCardSize() {
@@ -199,6 +203,26 @@ class SwissPublicTransportCard extends LitElement {
       setInterval(() => this.requestUpdate(), 1000);
     else
       setInterval(() => this.requestUpdate(), 10000);
+  }
+
+  _update_color_line_name() {
+    if (this._config.line_color === undefined) {
+      this._line_style = [];
+      return;
+    }
+
+    let line_style_rule = [];
+    let config = this._config.line_color;
+
+    for(const rule of config) {
+      // It's preferable to quit than create incomplete config
+      if (rule.linename === undefined || rule.background_color === undefined || rule.color === undefined)
+        return
+
+      line_style_rule[rule.linename] = `background-color: ${rule.background_color}; color: ${rule.color}`;
+    }
+
+    this._line_style = line_style_rule;
   }
 
   static get styles() {
