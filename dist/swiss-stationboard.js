@@ -44,8 +44,8 @@ class SwissPublicTransportCard extends LitElement {
             </div>`
             : html``
           }`
-        }     
-         
+        }
+
         </div>
         <table>
           <tbody id="departuretable">
@@ -163,7 +163,7 @@ class SwissPublicTransportCard extends LitElement {
         if (eta == "in")
           eta = "";
       }
-      
+
       // allow category filtering by regex (S-Bahn, Bus, ...)
       var categoryRegexp = new RegExp(this._config.category || "");
 
