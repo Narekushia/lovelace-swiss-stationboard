@@ -54,7 +54,8 @@ class SwissPublicTransportCard extends LitElement {
               <tr>
                 <td class="shrink" style="text-align:left;">
                   <span
-                    class="line ${departure.category} ${departure.linename}"
+                    class="line ${departure.category}"
+                    style="${this._line_style[departure.linename] ? this._line_style[departure.linename] : ""}"
                     title="${departure.exactname}"
                     >${departure.linename}</span
                   >
