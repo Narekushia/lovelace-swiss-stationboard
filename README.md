@@ -2,7 +2,7 @@
 
 # swiss-stationboard
 Custom lovelace card for Home Assistant Lovelace UI.
-Swiss public transport stationboard. Shows connections from one or multiple stations. 
+Swiss public transport stationboard. Shows connections from one or multiple stations.
 
 ![Stationboard "Schüpfen"](https://github.com/neuhausf/lovelace-swiss-stationboard/blob/main/img/stationboard-1.png?raw=true "Stationboard Schüpfen")
 
@@ -27,6 +27,10 @@ category: B|^ICE$|S
 platform_name: Gl.
 entity:
   - sensor.schupfen
+line_color:
+  - name: S31
+    background_color: "#ada431"
+    color: "#fff"
 ```
 
 ### Card settings
@@ -40,11 +44,12 @@ entity:
 * `show_last_changed`: if true, shows the last time that the underlying data changed.
 * `minutes_label`: the string denoting minutes in the ETA field.  Defaults to ` min` or ` mins` depending on how many minutes are left.  Note the whitespace before the word — if your chosen string does not have whitespace, the string will be stuck to the number.
 * `seconds_label`: the string denoting seconds in the ETA field.  Defaults to `″`.  Note the whitespace before the word — if your chosen string does not have whitespace, the string will be stuck to the number.
+* `line_color`: Optional css styling for specific lines (for example, S-Bahn color lines).
 
-## Privacy 
+## Privacy
 
 This integration uses:
 
-- https://github.com/agners/swiss-public-transport-card 
+- https://github.com/agners/swiss-public-transport-card
 - the changes made in the pull request by @agners: https://github.com/home-assistant/core/pull/30715
 - and some own code to adapt the visualization.
