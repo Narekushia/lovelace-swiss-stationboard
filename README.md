@@ -50,7 +50,7 @@ line_color:
 | `show_last_changed` | boolean | `false` | If true, shows the last time that the underlying data changed. |
 | `minutes_label` | string | `min` or `mins` | The string denoting minutes in the ETA field.  Note the whitespace before the word — if your chosen string does not have whitespace, the string will be stuck to the number. |
 | `seconds_label` | string | `″` | The string denoting seconds in the ETA field. Note the whitespace before the word — if your chosen string does not have whitespace, the string will be stuck to the number. |
-| `line_color` | list |  | Optional css styling for specific lines (for example, S-Bahn color lines) |
+| `line_color` | list |  | Optional css styling for specific lines (for example, S-Bahn color lines). **For each line `name`, `background_color` and `color` need to be present** |
 
 ## Privacy
 
