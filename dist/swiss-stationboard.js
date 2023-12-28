@@ -217,10 +217,10 @@ class SwissPublicTransportCard extends LitElement {
 
     for(const rule of config) {
       // It's preferable to quit than create incomplete config
-      if (rule.linename === undefined || rule.background_color === undefined || rule.color === undefined)
+      if (rule.name === undefined || rule.background_color === undefined || rule.color === undefined)
         return
 
-      line_style_rule[rule.linename] = `background-color: ${rule.background_color}; color: ${rule.color}`;
+      line_style_rule[rule.name] = `background-color: ${rule.background_color}; color: ${rule.color}`;
     }
 
     this._line_style = line_style_rule;
