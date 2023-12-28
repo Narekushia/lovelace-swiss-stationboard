@@ -1,21 +1,25 @@
+# swiss-stationboard
+
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
 
-# swiss-stationboard
 Custom lovelace card for Home Assistant Lovelace UI.
 Swiss public transport stationboard. Shows connections from one or multiple stations.
 
-![Stationboard "Schüpfen"](https://github.com/neuhausf/lovelace-swiss-stationboard/blob/main/img/stationboard-1.png?raw=true "Stationboard Schüpfen")
+![Stationboard "Schüpfen"](https://github.com/Narekushia/lovelace-swiss-stationboard/blob/main/img/stationboard-1.png?raw=true "Stationboard Schüpfen")
 
-## Information
+## Installation
 
-_**Warning:** Requires https://github.com/neuhausf/swiss-public-transport-mod to be installed first._
-Note that the current implementation is based on https://pypi.org/project/python-opendata-transport/ which currently doesn't return *delays* (property is there, but  the underlying API-call to transport.opendata.ch doesn't return anything).
+### Requirement
 
-## Configuration
+_Requires https://github.com/neuhausf/swiss-public-transport-mod to be installed first._
+
+### HACS Installation
 
 - Go to HACS
-- Add a custom repo: https://github.com/neuhausf/lovelace-swiss-stationboard
+- Add a custom repo: https://github.com/Narekushia/lovelace-swiss-stationboard
 - Install the lovelace card
+
+## Configuration
 
 Add a new custom card to your Dashboard:
 
@@ -35,16 +39,18 @@ line_color:
 
 ### Card settings
 
-* `departure_offset`: an optional number of X minutes (defaults to 0).  If greater than zero minutes, it hides all next departures within those minutes.  Note that the filtering is on the frontend only - so this could lead to an empty stationboard if the sensor doesn't provide enough journeys (`limit` setting of the [stationboard-sensor](https://github.com/neuhausf/swiss-public-transport-mod))
-* `departure_countdown`: an optional number of minutes (defaults to 15).  All departures within this time window will have a countdown displayed onscreen.
-* `show_seconds`: if true, will show seconds in addition to minutes within the countdown.
-* `entity`: which entity (from *swiss-public-transport-mod*) to use as the data source.
-* `hide_title`: hides the title if true.
-* `category`: regular expression to filter by categories (S-train, Bus, ICE, ...).  i.e. to include multiple categories use the OR operator: `category: B|^ICE$|S`
-* `show_last_changed`: if true, shows the last time that the underlying data changed.
-* `minutes_label`: the string denoting minutes in the ETA field.  Defaults to ` min` or ` mins` depending on how many minutes are left.  Note the whitespace before the word — if your chosen string does not have whitespace, the string will be stuck to the number.
-* `seconds_label`: the string denoting seconds in the ETA field.  Defaults to `″`.  Note the whitespace before the word — if your chosen string does not have whitespace, the string will be stuck to the number.
-* `line_color`: Optional css styling for specific lines (for example, S-Bahn color lines).
+| Name | Type | Default | Description |
+| ---- | :---: | :---: | ----------- |
+| `departure_offset` | number | `0` | An optional number of X minutes. If greater than zero minutes, it hides all next departures within those minutes.  Note that the filtering is on the frontend only - so this could lead to an empty stationboard if the sensor doesn't provide enough journeys (`limit` setting of the [stationboard-sensor](https://github.com/neuhausf/swiss-public-transport-mod)) |
+| `departure_countdown` | number | `15` | An optional number of minutes. All departures within this time window will have a countdown displayed onscreen. |
+| `show_seconds` | boolean | `false` | If true, will show seconds in addition to minutes within the countdown. |
+| `entity` ***(required)*** | | | which entity (from *swiss-public-transport-mod*) to use as the data source. |
+| `hide_title` | boolean | `false` | Hides the title if true. |
+| `category` | string | | Regular expression to filter by categories (S-train, Bus, ICE, ...).  i.e. to include multiple categories use the OR operator: `category: B|^ICE$|S` |
+| `show_last_changed` | boolean | `false` | If true, shows the last time that the underlying data changed. |
+| `minutes_label` | string | `min` or `mins` | The string denoting minutes in the ETA field.  Note the whitespace before the word — if your chosen string does not have whitespace, the string will be stuck to the number. |
+| `seconds_label` | string | `″` | The string denoting seconds in the ETA field. Note the whitespace before the word — if your chosen string does not have whitespace, the string will be stuck to the number. |
+| `line_color` | list |  | Optional css styling for specific lines (for example, S-Bahn color lines) |
 
 ## Privacy
 
