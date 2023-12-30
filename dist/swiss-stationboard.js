@@ -57,8 +57,9 @@ class SwissPublicTransportCard extends LitElement {
                     class="line ${departure.category}"
                     style="${this._line_style[departure.linename] ? this._line_style[departure.linename] : ""}"
                     title="${departure.exactname}"
-                    >${departure.linename}</span
-                  >
+                    >
+                      <span class="category">${departure.category}</span><span class="number">${departure.number}</span>
+                    </span>
                 </td>
                 <td
                   class="shrink ${departure.delayed}"
@@ -129,9 +130,8 @@ class SwissPublicTransportCard extends LitElement {
       const exactname = journey["name"];
 
       const category = journey["category"];
-      const linename =
-        category +
-        ((journey["number"] && journey["number"].startsWith(category)) ? "" : (journey["number"] || ""));
+      const number = (journey["number"] && journey["number"].startsWith(category)) ? "" : (journey["number"] || "");
+      const linename = category + number;
 
       const delay = journey["delay"];
       const delayed = delay > 1 ? "delayed" : "";
@@ -175,6 +175,7 @@ class SwissPublicTransportCard extends LitElement {
           departure: departure,
           destination: destination,
           category: category,
+          number: number,
           delay: delay,
           delayed: delayed,
           eta: eta,
