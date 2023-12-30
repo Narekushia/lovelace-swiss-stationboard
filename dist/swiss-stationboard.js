@@ -269,9 +269,9 @@ class SwissPublicTransportCard extends LitElement {
         border: solid 1px #ccc;
       }
       span.RE {
-        color: #fff;
+        color: #eb0000;
         border: solid 1px #ccc;
-        background-color: #eb0000;
+        background-color: #fff;
       }
       span.IR {
         color: #fff;
