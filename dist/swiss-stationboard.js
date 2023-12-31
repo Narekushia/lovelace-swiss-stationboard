@@ -275,21 +275,26 @@ class SwissPublicTransportCard extends LitElement {
         background-color: #fff;
       }
 
-      span.IC > .category, span.IR > .category {
+      span.IC  > .category,
+      span.IR  > .category,
+      span.EC  > .category,
+      span.TGV > .category {
         font-style: italic;
         margin-right: .1rem;
       }
 
-      span.IR {
+      span.IR, span.IC, span.EC, span.TGV {
         color: #fff;
         border: solid 1px #ccc;
         background-color: #eb0000;
       }
-      span.IC {
-        color: #fff;
-        border: solid 1px #ccc;
-        background-color: #eb0000;
+
+      span.SN {
+        color: #FFDE15;
+        background-color: #000;
+        border: solid 1px #FFDE15;
       }
+
       span.T {
         color: #fff;
         border: solid 1px #ccc;
