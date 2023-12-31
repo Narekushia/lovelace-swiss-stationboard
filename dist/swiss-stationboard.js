@@ -130,7 +130,7 @@ class SwissPublicTransportCard extends LitElement {
       const exactname = journey["name"];
 
       const category = journey["category"];
-      const number = (journey["number"] && journey["number"].startsWith(category)) ? "" : (journey["number"] || "");
+      const number = (journey["number"] && journey["number"].startsWith(exactname)) ? "" : (journey["number"] || "");
       const linename = category + number;
 
       const delay = journey["delay"];
